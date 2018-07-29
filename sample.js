@@ -32,7 +32,7 @@ casper.start('http://b.hatena.ne.jp/hotentry/all', function() {
       method: 'post',
       data: {
         'time': now,
-        'foo': res
+        'mac': res
       },
       headers: {
         'Accept-Language': 'ja'
