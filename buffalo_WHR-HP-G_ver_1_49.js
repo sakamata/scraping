@@ -15,10 +15,29 @@ var casper = require('casper').create({
 
 // 指定のURLへ遷移
 // frameの子要素のみを直接呼び出している
-casper.start('http://192.168.11.1/cgi-bin/cgi?req=frm&frm=client.html', function() {
-    var mac1 = this.getElementInfo("body > table > tbody > tr > td:nth-of-type(1)");
-    mac1  = mac1.text.trim();
-    require('utils').dump(mac1);
+casper.start('http://192.168.11.1/cgi-bin/cgi?req=frm&frm=client.html')
+
+// Thanks! https://stackoverflow.com/questions/33770798/extracting-table-elements-with-casperjs
+// table要素の特定列の値のみをjson形式で返す
+casper.then(function a2() {
+    var mac_address = casper.evaluate(function () {
+        return [].map.call(__utils__.findAll('table tr td:nth-child(1)'), function (e) { return e.innerHTML; });
+    });
+
+    // 取得結果の配列をJSONに変換
+    var res = JSON.stringify(mac_address, null, 2);
+    console.log(res);
+    // WebApp側へPOSTする
+    casper.open(POST_URL, {
+      method: 'post',
+      data: {
+        'mac': res
+      },
+      headers: {
+        'Accept-Language': 'ja'
+      }
+    });
+
 });
 
 //実行
