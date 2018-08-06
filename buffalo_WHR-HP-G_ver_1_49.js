@@ -15,7 +15,7 @@ var casper = require('casper').create({
 
 // 指定のURLへ遷移
 // frameの子要素のみを直接呼び出している
-casper.start('http://192.168.11.1/cgi-bin/cgi?req=frm&frm=client.html')
+casper.start(ROUTER_ADDRESS)
 
 // Thanks! https://stackoverflow.com/questions/33770798/extracting-table-elements-with-casperjs
 // table要素の特定列の値のみをjson形式で返す
