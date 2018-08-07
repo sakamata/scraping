@@ -1,6 +1,16 @@
 // 設定ファイルのinclude 対象は .gitignore ファイルとしています
-// 本ファイル内の大文字の変数を読み込んでます
-phantom.injectJs('access_and_post.js');
+// 詳細は sample_access_and_post.js を観ながら同様に設定をしてください。
+// 本ファイル内の大文字の変数を読み込んでます。
+
+// 動作確認をするのみであれば、以下の様にカレントディレクトリのファイルが読み込むのみでOKです。
+// phantom.injectJs('access_and_post.js');
+
+// virtualboxでの仮想環境では以下の様な /mnt といったマウント用フォルダからの絶対PATH設定が必要です。
+// phantom.injectJs('/mnt/scraping/access_and_post.js');
+
+// RaspberryPI本体でcron稼働させる場合、絶対PATHでの設定が必要です。
+phantom.injectJs('/home/pi/scraping/access_and_post.js');
+
 
 // スクレイピング開始
 // basic認証
