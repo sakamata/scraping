@@ -9,7 +9,7 @@
 // phantom.injectJs('/mnt/scraping/access_and_post.js');
 
 // RaspberryPI本体でcron稼働させる場合、絶対PATHでの設定が必要です。
-phantom.injectJs('/home/pi/scraping/access_and_post.js');
+phantom.injectJs('/home/pi/whois/scraping/access_and_post.js');
 
 
 // スクレイピング開始
