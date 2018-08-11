@@ -1,6 +1,6 @@
 // 設定ファイルのinclude 対象は .gitignore ファイルとしています
 // 本ファイル内の大文字の変数を読み込んでます
-phantom.injectJs('access_and_post.js');
+phantom.injectJs('/home/pi/whois/scraping/access_and_post.js');
 
 // スクレイピング開始
 // basic認証
