@@ -23,7 +23,7 @@ casper.then(function a2() {
     var mac_address = this.evaluate(function() {
         // htmlの要素を指定して必要な情報を抽出する
         // ブラウザの開発ツールにある "Copy selector" 等が参考になります
-        var Nodes = document.querySelectorAll('#info_upnp_cp > table > tbody > tr > td:nth-child(2).matrix_item');
+        var Nodes = document.querySelectorAll('#info_dhcpv4server > table:nth-child(4) > tbody > tr > td:nth-child(2).matrix_item');
         // 抽出したNodesを配列として取得
         return Array.prototype.map.call(Nodes, function(element) {
             return element.innerHTML;
